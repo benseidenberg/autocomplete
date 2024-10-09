@@ -6,7 +6,7 @@ public class Term implements Comparable<Term> {
     public Term(String query, long weight) {
         // hello, testing 1
         // Hello >)
-        // hello 3
+        // hello 4
     }
 
     // Compares the two terms in descending order by weight.
