@@ -7,6 +7,8 @@ public class Term implements Comparable<Term> {
         // hello, testing 1
         // Hello >)
         // hello 3
+
+        // hello 4
     }
 
     // Compares the two terms in descending order by weight.
