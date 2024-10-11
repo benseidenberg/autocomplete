@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Term implements Comparable<Term> {
@@ -58,4 +59,17 @@ public class Term implements Comparable<Term> {
     public String toString() {
         return String.format("%.2f\t%s", this.weight, this.query); // "%.2f" = 2 decimal places
     }
+
+    public static void main(String[] args) {
+        Term t1 = new Term("benebnebne", 8);
+        Term t2 = new Term("csciscsicsisc", 11);
+        ArrayList<Term> arr = new ArrayList<>();
+        arr.add(t1);
+        arr.add(t2);
+        arr.sort(byPrefixOrder(2));
+        for (Term tmp : arr) {
+            System.out.println(tmp.query);
+        }
+    }
 }
+
