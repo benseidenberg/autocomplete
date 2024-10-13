@@ -5,8 +5,14 @@ public class BinarySearchDeluxe {
     // Returns the index of the first key in the sorted array a[]
     // that is equal to the search key, or -1 if no such key.
     public static <Key> int firstIndexOf(Key[] a, Key key, Comparator<Key> comparator) {
-        if (a == null || key == null || comparator == null) {
-            throw new NullPointerException("Array, key, or comparator cannot be null.");
+        if (a == null) {
+            throw new NullPointerException("array can't be null");
+        }
+        else if (key == null) {
+            throw new NullPointerException("key can't be null");
+        }
+        else if (comparator == null) {
+            throw new NullPointerException(" comparator can't be null.");
         }
         // initial bounds
         int lo = 0;
