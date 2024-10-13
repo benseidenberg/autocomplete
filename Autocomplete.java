@@ -14,28 +14,27 @@ public final class Autocomplete {
             if (term == null) throw new IllegalArgumentException("each term cannot be null");
         }
         this.terms = terms;
-        Arrays.sort(this.terms);  // Sort terms in lexicographical order
+        Arrays.sort(this.terms);  // Sort terms
     }
 
-    // Finds and returns all matching terms for the given prefix
     public Term[] allMatches(String prefix) {
         if (prefix == null) throw new NullPointerException("prefix can't be null");
 
         // Use binary search to find the first and last indices of matching terms
         int firstIndex = BinarySearchDeluxe.firstIndexOf(terms, new Term(prefix, 0),
                                                          Term.byPrefixOrder(prefix.length()));
-        if (firstIndex == -1) return new Term[0];  // No matches
-
         int lastIndex = BinarySearchDeluxe.lastIndexOf(terms, new Term(prefix, 0),
                                                        Term.byPrefixOrder(prefix.length()));
-
+        
+        if (firstIndex == -1) return new Term[0];  // No matches
         // Copy matching terms into a new array
         Term[] matchTerms = Arrays.copyOfRange(terms, firstIndex, lastIndex + 1);
 
         // Sort matches in descending order by weight
         Arrays.sort(matchTerms, Term.byReverseWeightOrder());
 
-        return matchTerms;  // Return sorted matches
+        return matchTerms;
+        // Return sorted matches
     }
 
     // Returns the number of matching terms for the given prefix
